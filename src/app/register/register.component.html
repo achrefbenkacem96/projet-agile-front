@@ -1,0 +1,114 @@
+<!-- End Navbar -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/assets/css/paper-dashboard.min.css?v=2.1.1" rel="stylesheet" />
+<link href="/assets/demo/demo.css" rel="stylesheet" />
+<div class="register ">
+  <div class="full-page section-image" style="background-image: url('../assets/img/imagee.jpg');     padding-top: 45vh;
+">
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="content">
+      <div class="container">
+        <div class="col-6" style="left: 250px;top: -380px;">
+          <form *ngIf="!isSuccessful"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate>
+            <div class="card card-login">
+              <div class="card-header ">
+                <div class="card-header ">
+                  <h3 class="header text-center" style="color:blue;  font-size:50px;">Inscription</h3>
+                </div>
+              </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="nc-icon nc-single-02"></i>
+                        </span>
+              </div>
+              <input  type="text"
+                      class="form-control"
+                      name="username"
+                      [(ngModel)]="form.username"
+                      required
+                      minlength="3"
+                      maxlength="20"
+                      #username="ngModel"
+                      placeholder="Nom et Prénom...">
+            </div>
+            <div class="alert-danger" *ngIf="username.errors && f.submitted">
+              <div *ngIf="username.errors['required']">Nom d'utilisateur est nécessaire
+              </div>
+              <div *ngIf="username.errors['minlength']">
+                Le nom d'utilisateur doit comporter au moins 3 caractères
+              </div>
+              <div *ngIf="username.errors['maxlength']">
+                Le nom d'utilisateur doit comporter au maximum 20 caractères
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="nc-icon nc-circle-10"></i>
+                        </span>
+              </div>
+              <input type="password"
+                     class="form-control"
+                     name="password"
+                     [(ngModel)]="form.password"
+                     required
+                     minlength="6"
+                     #password="ngModel"
+                     placeholder="mot de passe..." >
+            </div>
+            <div class="alert-danger" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors['required']">Mot de passe requis
+              </div>
+              <div *ngIf="password.errors['minlength']">
+                Le mot de passe doit être au moins de 6 caractères
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="nc-icon nc-email-85"></i>
+                        </span>
+              </div>
+              <input type="email"
+                     class="form-control"
+                     name="email"
+                     [(ngModel)]="form.email"
+                     required
+                     email
+                     #email="ngModel"
+                     placeholder="Email...">
+            </div>
+            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+              <div *ngIf="email.errors['required']">E-mail est requis
+              </div>
+              <div *ngIf="email.errors['email']">
+                E-mail doit être une adresse e-mail valide
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-block">S'inscrire</button>
+            </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" routerLink="/login">Se connecter</button>
+              </div>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              Signup failed!<br />{{ errorMessage }}
+            </div>
+            </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Votre inscription est réussie !
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

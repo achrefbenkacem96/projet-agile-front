@@ -1,0 +1,166 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/assets/css/paper-dashboard.min.css?v=2.1.1" rel="stylesheet"/>
+<link href="/assets/demo/demo.css" rel="stylesheet"/>
+
+<div [ngClass]="isAuth ? 'sidebar' : 'sidebarlogout'" data-color="default" data-active-color="danger">
+
+  <div class="logo">
+    <a routerLink="/profil" class="simple-text logo-mini"></a>
+    <a class="simple-text logo-normal">
+       Gestion Intégré (ERP) 
+    </a>
+  </div>
+
+  <div *ngIf="isAuth" class="sidebar-wrapper">
+    <div class="user">
+      <div class="photo">
+        <img src="../../assets/img/new_logo.png">
+      </div>
+      <div class="info">
+        <a data-toggle="collapse" style="color: white;" href="#collapseExample" class="collapsed">
+                    <span>
+                        {{user.username}}
+                      <b class="caret"></b>
+            </span>
+        </a>
+        <div class="clearfix"></div>
+        <div class="collapse" id="collapseExample">
+          <ul class="nav">
+            <li>
+              <a>
+                <span class="sidebar-mini-icon">MP</span>
+                <span class="sidebar-normal">Mon Profile</span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <span class="sidebar-mini-icon">MOD</span>
+                <span class="sidebar-normal">Modifier profile</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="logout()" *ngIf="isAuth">
+                <span class="sidebar-mini-icon">Se</span>
+                <span class="sidebar-normal">Se déconnecter</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="nav">
+      <li *ngIf="isAdmin()">
+        <a routerLink="/dashboard">
+          <i class="nc-icon nc-bank"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li *ngIf="isAdmin()">
+        <a routerLink="/user">
+          <i class="nc-icon nc-single-02"></i>
+          <p>utilisateur</p>
+        </a>
+      </li>
+      <li *ngIf="isAdmin()">
+        <a routerLink="/fournisseur">
+          <i class="nc-icon nc-simple-add"></i>
+          <p>fournisseur</p>
+        </a>
+      </li>
+      <!-- <li>
+        <a routerLink="/region">
+          <i class="nc-icon nc-pin-3"></i>
+          <p>Region</p>
+        </a>
+      </li> -->
+      <!-- <li>
+        <a routerLink="/projet">
+          <i class=" nc-icon nc-bullet-list-67"></i>
+          <p>Projet</p>
+        </a>
+      </li> -->
+      <!-- <li>
+        <a data-toggle="collapse" href="#pagesExamples">
+          <i class="nc-icon nc-book-bookmark"></i>
+          <p>
+            Les taches <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse " id="pagesExamples">
+          <ul class="nav">
+            <li>
+              <a routerLink="/gc">
+                <span class="sidebar-mini-icon">gc</span>
+                <span class="sidebar-normal"> Gc </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/fsc">
+                <span class="sidebar-mini-icon">fsc</span>
+                <span class="sidebar-normal"> Fsc </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/creationidm">
+                <span class="sidebar-mini-icon">idm</span>
+                <span class="sidebar-normal"> Creation idm </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/creationsadirah">
+                <span class="sidebar-mini-icon">sad</span>
+                <span class="sidebar-normal"> Creation Sadirah </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/identificationimmeuble">
+                <span class="sidebar-mini-icon">idm</span>
+                <span class="sidebar-normal"> Id Immeuble </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/modelisationidm">
+                <span class="sidebar-mini-icon">midm</span>
+                <span class="sidebar-normal">  Modelisation Idm </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/modelisationpbo">
+                <span class="sidebar-mini-icon">pbo</span>
+                <span class="sidebar-normal">  Modelisation PBO </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/racco">
+                <span class="sidebar-mini-icon">rac</span>
+                <span class="sidebar-normal">  Racco </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/regie">
+                <span class="sidebar-mini-icon">reg</span>
+                <span class="sidebar-normal">  Regie </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/vtl">
+                <span class="sidebar-mini-icon">vtl</span>
+                <span class="sidebar-normal">  Vtl </span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/trame">
+                <span class="sidebar-mini-icon">tra</span>
+                <span class="sidebar-normal">  Trame </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+       
+    </ul>
+  </div>
+</div>
+
